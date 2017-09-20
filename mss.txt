@@ -1,0 +1,5 @@
+Q1. Both union and union all is used to combine results of the select queries. Union eliminates duplicate record and sorts the first column. Union all includes duplicate record and doesn’t sort.
+
+Q2. Both WHERE and HAVING is used to specify filtering condition. WHERE is used while fetching rows from table and data which doesn’t pass the condition will not be fetched into result. Having is later used to filter grouped data. Group function can’t be used in where clause. It can be used in HAVING clause.Only columns or expression in the group can be included in the HAVING clause.
+
+Q3. The VARCHAR2 stores variable-length character strings and uses nonpadded comparison semantics. VARCHAR supports distinction between null and empty string. VARCHAR2 doesn’t distinguish between a null and empty string.
