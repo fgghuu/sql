@@ -38,6 +38,43 @@ END;
 CREATE TABLE PRODUCT(PID INT PRIMARY KEY,PNAME VARCHAR2(20),PDESP VARCHAR2(20),QTY NUMBER(2,0))
 CREATE TABLE SALE(SID INT PRIMARY KEY,PID INT,SQTY NUMBER(2,0),FOREIGN KEY (PID)REFERENCEs PRODUCT(PID))
 
+CREATE OR REPLACE PACKAGE SALARY AS
+FUNCTION GETM(A IN INT, B IN INT)
+    RETURN INT ;
+    
+FUNCTION GETGREATER(A INT, B INT)
+    RETURN INT;
+END SALARY;
+
+CREATE OR REPLACE PACKAGE BODY SALARY AS
+FUNCTION GETM(A  INT, B  INT) RETURN INT 
+    AS
+    BEGIN
+        RETURN (A - B);
+    END GETM;
+    
+FUNCTION GETGREATER(A INT, B INT) RETURN INT 
+AS
+C INT;
+BEGIN
+       IF A > B THEN
+          C := A;
+       ELSE
+          C := B;
+        END IF;
+        RETURN C;
+   END ISGREATER;
+END SALARY;
+
+
+SET SERVEROUTPUT ON
+DECLARE
+    RESULT INT;
+BEGIN
+    RESULT := SALARY.GETSUM(12, 18);
+    DBMS_OUTPUT.PUT_LINE(RESULT);
+END;
+
 Packages provide a means to collect related procedures, functions, cursors, declarations, types, and variables into a single, named database object that is more flexible than the related database objects are by themselves.
 Modular approach, Encapsulation/hiding of business logic, security, performance improvement, reusability
 
